@@ -182,8 +182,6 @@ class TokenRequest<T extends TokenRequestConfig> extends Request<T, TokenRespons
       }
     );
 
-    console.log("Response JSON", response);
-
     if ('error' in response) {
       throw new TokenError(response);
     }
