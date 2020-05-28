@@ -131,7 +131,6 @@ class TokenRequest extends Request {
             headers: this.getHeaders(),
             body: this.getQueryBody(),
         });
-        console.log("Response JSON", response);
         if ('error' in response) {
             throw new TokenError(response);
         }
