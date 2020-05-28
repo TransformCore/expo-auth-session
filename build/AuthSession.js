@@ -53,6 +53,7 @@ export async function startAsync(options) {
         type: errorCode ? 'error' : 'success',
         params,
         errorCode,
+        tokenResponse: null,
         url: result.url,
     };
 }
@@ -132,6 +133,13 @@ async function _openWebBrowserAsync(startUrl, returnUrl, showInRecents) {
     return result;
 }
 export * from './AuthRequestHooks';
-export { AuthError } from './Errors';
+export { AuthError, TokenError } from './Errors';
 export { AuthRequest, CodeChallengeMethod, Prompt, ResponseType, resolveDiscoveryAsync, fetchDiscoveryAsync, };
+export { 
+// Token classes
+TokenResponse, AccessTokenRequest, RefreshTokenRequest, RevokeTokenRequest, 
+// Token methods
+revokeAsync, refreshAsync, exchangeCodeAsync, requestUserInfoAsync, } from './TokenRequest';
+// Token types
+export * from './TokenRequest.types';
 //# sourceMappingURL=AuthSession.js.map
