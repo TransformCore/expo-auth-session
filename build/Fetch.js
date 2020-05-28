@@ -36,7 +36,9 @@ export async function requestAsync(requestUrl, fetchRequest) {
     }
     // Fix a problem with React Native `URL` causing a trailing slash to be added.
     const correctedUrl = url.toString().replace(/\/$/, '');
+    console.log("Request", request);
     const response = await fetch(correctedUrl, request);
+    console.log("Response", response);
     const contentType = response.headers.get('content-type');
     if (isJsonDataType || contentType?.includes('application/json')) {
         return response.json();

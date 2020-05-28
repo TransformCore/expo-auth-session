@@ -131,6 +131,7 @@ class TokenRequest extends Request {
             headers: this.getHeaders(),
             body: this.getQueryBody(),
         });
+        console.log("Response JSON", response);
         if ('error' in response) {
             throw new TokenError(response);
         }
@@ -180,6 +181,7 @@ export class AccessTokenRequest extends TokenRequest {
         super(options, GrantType.AuthorizationCode);
         this.code = options.code;
         this.redirectUri = options.redirectUri;
+        this.codeVerifier = options.codeVerifier;
     }
     getQueryBody() {
         const queryBody = super.getQueryBody();
@@ -188,6 +190,9 @@ export class AccessTokenRequest extends TokenRequest {
         }
         if (this.code) {
             queryBody.code = this.code;
+        }
+        if (this.codeVerifier) {
+            queryBody.code_verifier = this.codeVerifier;
         }
         return queryBody;
     }
