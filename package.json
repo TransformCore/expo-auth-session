@@ -1,5 +1,5 @@
 {
-  "name": "expo-auth-session-et",
+  "name": "expo-auth-session",
   "version": "1.2.0-et",
   "description": "Expo module for browser-based authentication",
   "main": "build/AuthSession.js",
